@@ -1,13 +1,12 @@
 ## Introduction
 
-Goal of this project will be to setup a Spring Boot backend for the ReactJS TodoMvc sample
+Goal of this project will be to setup a Spring Boot backend for the [ReactJS Redux TodoMvc example](https://github.com/reactjs/redux/tree/master/examples/todomvc/)
 
 - ReactJS frontend is built using create-react-app
-- Frontend build is triggered via maven build
-- Frontend is packaged with the Spring Boot backend
-- SpringBoot CrudRepository backed REST controller
-- H2 database
-
+- Frontend build (using yarn) triggered via maven 
+- Frontend code bundled with the Spring Boot backend in the same JAR
+- SpringBoot CrudRepository backed REST controller (H2 in memory database)
+- Docker image built via maven
 
 ## Running the app
 
