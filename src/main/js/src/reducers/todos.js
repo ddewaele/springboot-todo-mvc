@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED } from '../constants/ActionTypes'
+import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED, FETCH_TODOS} from '../constants/ActionTypes'
 
 const initialState = [
   {
@@ -38,6 +38,9 @@ export default function todos(state = initialState, action) {
           { ...todo, completed: !todo.completed } :
           todo
       )
+
+    case FETCH_TODOS + "_FULFILLED":
+      return action.payload.data;
 
     case COMPLETE_ALL:
       const areAllMarked = state.every(todo => todo.completed)

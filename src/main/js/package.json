@@ -8,6 +8,7 @@
     "react-scripts": "^1.0.2"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "classnames": "^2.2.5",
     "prop-types": "^15.5.10",
     "react": "^15.5.0",
@@ -15,7 +16,17 @@
     "react-redux": "^5.0.5",
     "react-test-renderer": "^15.5.4",
     "redux": "^3.5.2",
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "^5.0.0",
+    "redux-thunk": "^2.2.0",
     "todomvc-app-css": "^2.1.0"
+  },
+  "proxy": {
+    "/": {
+      "target": "http://localhost:7070",
+      "secure": false,
+      "prependPath": false
+    }
   },
   "scripts": {
     "start": "react-scripts start",

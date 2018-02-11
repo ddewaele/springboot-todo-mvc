@@ -6,12 +6,22 @@ import Header from '../components/Header'
 import MainSection from '../components/MainSection'
 import * as TodoActions from '../actions'
 
-const App = ({todos, actions}) => (
-  <div>
-    <Header addTodo={actions.addTodo} />
-    <MainSection todos={todos} actions={actions} />
-  </div>
-)
+class App extends React.Component {
+
+    componentDidMount() {
+        this.props.dispatch(TodoActions.fetchTodos())
+    }
+
+    render() {
+
+        const { todos,actions } = this.props
+
+        return (<div>
+            <Header addTodo={actions.addTodo} />
+            <MainSection todos={todos} actions={actions} />
+        </div>)
+    }
+}
 
 App.propTypes = {
   todos: PropTypes.array.isRequired,
@@ -23,10 +33,10 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(TodoActions, dispatch)
+    actions: bindActionCreators(TodoActions, dispatch),
+    dispatch: dispatch
 })
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps,mapDispatchToProps
 )(App)
