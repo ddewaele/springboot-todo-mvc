@@ -17,7 +17,7 @@ class App extends React.Component {
         const { todos,actions } = this.props
 
         return (<div>
-            <Header addTodo={actions.addTodo} />
+            <Header addTodo={actions.addTodoAndFetchTodos} />
             <MainSection todos={todos} actions={actions} />
         </div>)
     }

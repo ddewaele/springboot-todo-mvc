@@ -1,12 +1,6 @@
 import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED, FETCH_TODOS} from '../constants/ActionTypes'
 
-const initialState = [
-  {
-    text: 'Use Redux',
-    completed: false,
-    id: 0
-  }
-]
+const initialState = []
 
 export default function todos(state = initialState, action) {
   switch (action.type) {
@@ -41,6 +35,10 @@ export default function todos(state = initialState, action) {
 
     case FETCH_TODOS + "_FULFILLED":
       return action.payload.data;
+
+
+    case "ADD_TODO_FULFILLED":
+      return state
 
     case COMPLETE_ALL:
       const areAllMarked = state.every(todo => todo.completed)

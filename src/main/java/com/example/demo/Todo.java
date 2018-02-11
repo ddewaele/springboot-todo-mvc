@@ -1,22 +1,20 @@
 package com.example.demo;
 
-import java.util.UUID;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Todo {
 
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     private String text;
     private boolean completed;
-
-    public Todo(String text) {
-        this(UUID.randomUUID().toString(),text,false);
-
-    }
-    public Todo(String id, String text, boolean completed) {
-        this.id = id;
-        this.text = text;
-        this.completed = completed;
-    }
 
     public String getText() {
         return text;
@@ -34,11 +32,24 @@ public class Todo {
         this.completed = completed;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public void toggle() {
+        this.completed=!this.completed;
+    }
+
+    @Override
+    public String toString() {
+        return "Todo{" +
+                "id=" + id +
+                ", text='" + text + '\'' +
+                ", completed=" + completed +
+                '}';
     }
 }

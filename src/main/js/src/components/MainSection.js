@@ -19,7 +19,7 @@ export default class MainSection extends Component {
   state = { filter: SHOW_ALL }
 
   handleClearCompleted = () => {
-    this.props.actions.clearCompleted()
+    this.props.actions.clearCompletedTodosAndFetchTodos()
   }
 
   handleShow = filter => {
